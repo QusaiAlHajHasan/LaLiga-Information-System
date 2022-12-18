@@ -1,0 +1,101 @@
+PLAYER_ID,PLAYER_NAME,AGE,BIRTH_DATE,POSITION,NATIONALITY,PLAYER_NUMBER,PLAYER_TEAM
+1,Marc-Andre Ter Stegen,27,4/30/1992,GoalKeeper,Germany,1,FC Barcelona
+2,Samuel Umtiti,26,2/14/1993,Defender,France,23,FC Barcelona
+3,Clement Lenglet,24,6/17/1995,Defender,France,15,FC Barcelona
+4,Arthur,23,8/12/1996,Center,Brazil,8,FC Barcelona
+5,Lionel Messi,32,6/24/1987,Forward,Argentina,10,FC Barcelona
+6,Antonio Sivera,23,8/11/1996,GoalKeeper,Spain,13,Deportivo Alaves
+7,Adrian Marin,22,1/9/1997,Defender,Spain,17,Deportivo Alaves
+8,Alberto Rodrguez Baro,22,9/10/1997,Defender,Spain,29,Deportivo Alaves
+9,Antonio Perera,22,6/8/1997,Center,Spain,27,Deportivo Alaves
+10,Bojan Krkic,29,8/28/1990,Forward,Spain,15,Deportivo Alaves
+11,Jan Oblak,26,1/27/1993,GoalKeeper,Slovenia,13,Atletico de Madrid
+12,Kieran Trippier,29,9/19/1990,Defender,England,23,Atletico de Madrid
+13,Santiago Arias,27,1/13/1992,Defender,Colombia,4,Atletico de Madrid
+14,Thomas Lemar,24,11/12/1995,Center,France,11,Atletico de Madrid
+15,Alvaro Morata,27,10/23/1992,Forward,Spain,9,Atletico de Madrid
+16,Daniel Martin,21,7/8/1998,GoalKeeper,Spain,13,Real Betis
+17,Aissa Mandi,28,10/22/1991,Defender,Algeria,23,Real Betis
+18,Antonio Barragan,32,6/12/1987,Defender,Spain,19,Real Betis
+19,Sergio Canales,28,2/16/1991,Center,Spain,10,Real Betis
+20,Cristian Tello,28,8/11/1991,Forward,Spain,11,Real Betis
+21,Adrian Lopez,20,1/9/1999,GoalKeeper,Spain,35,RCD Espanyol
+22,Adria Pedrosa,21,5/13/1998,Defender,Spain,3,RCD Espanyol
+23,Bernardo Espinosa,30,7/11/1989,Defender,Spain,20,RCD Espanyol
+24,Matias Vargas,22,5/8/1997,Center,Argentina,22,RCD Espanyol
+25,Jose Antonio Reyes,36,9/1/1983,Forward,Spain,9,RCD Espanyol
+26,Juan Manuel Perez,23,7/15/1996,GoalKeeper,Spain,26,Osasuna
+27,Aridane Hernandez,30,3/23/1989,Defender,Spain,23,Osasuna
+28,Carlos Clerc,27,2/21/1992,Defender,Spain,21,Osasuna
+29,Brandon,24,2/4/1995,Center,Spain,11,Osasuna
+30,Adriane Lopez,31,1/8/1988,Forward,Spain,22,Osasuna
+31,Andoni Zubiaurre,23,12/4/1996,GoalKeeper,Spain,30,Real Sociedad
+32,Aihen Munoz,22,8/16/1997,Defender,Spain,12,Real Sociedad
+33,Kevin Rodrigues,25,3/5/1994,Defender,Portogal,20,Real Sociedad
+34,Igor Zubeldia,22,3/30/1997,Center,Spain,5,Real Sociedad
+35,Alexander Isak,20,9/21/1999,Forward,Sweden,19,Real Sociedad
+36,Jasper Cillessen,30,4/22/1989,GoalKeeper,Netherlands,13,Valencia C.F
+37,Eliaquim Mangala,28,2/13/1991,Defender,France,4,Valencia C.F
+38,Jose Luis Gaya,24,5/25/1995,Defender,Spain,14,Valencia C.F
+39,Daniel Parejo,30,4/16/1989,Center,Spain,10,Valencia C.F
+40,Rodrigo Moreno,28,3/6/1991,Forward,Spain,19,Valencia C.F
+41,Andres Fernandez,32,12/17/1986,GoalKeeper,Spain,13,Villarreal CF
+42,Daniele Bonera,38,5/31/1981,Defender,Italy,23,Villarreal CF
+43,Mario Gaspar,29,11/24/1990,Defender,Spain,2,Villarreal CF
+44,Santi Cazorla,35,12/13/1984,Center,Spain,8,Villarreal CF
+45,Gerard Moreno,27,4/7/1992,Forward,Spain,7,Villarreal CF
+46,Jaime Jimenez,39,12/10/1980,GoalKeeper,Spain,25,SD Eibar
+47,Alvaro Tejero,22,7/20/1997,Defender,Spain,11,SD Eibar
+48,Jose Angel,30,9/5/1989,Defender,Spain,15,SD Eibar
+49,Sergio Alvarez,27,1/23/1992,Center,Spain,6,SD Eibar
+50,Charles,35,4/4/1984,Forward,Brazil,19,SD Eibar
+51,Oier Olazabal,30,9/14/1989,GoalKeeper,Spain,1,Levante
+52,Ivan Lopez,26,8/23/1993,Defender,Spain,2,Levante
+53,Pedro Lopez,36,11/1/1983,Defender,Spain,19,Levante
+54,Jose Campana,26,5/31/1993,Center,Spain,24,Levante
+55,Borja Mayoral,22,5/6/1997,Forward,Spain,21,Levante
+56,Unai Simon,22,6/11/1997,GoalKeeper,Spain,1,Athletic de Bilbao
+57,Inigo Martinez,28,5/17/1991,Defender,Spain,4,Athletic de Bilbao
+58,Unai Nunez,22,1/30/1997,Defender,Spain,3,Athletic de Bilbao
+59,Benat,32,2/19/1987,Center,Spain,7,Athletic de Bilbao
+60,Iker Muniain,26,12/19/1992,Forward,Spain,10,Athletic de Bilbao
+61,Ivan Villar,28,7/9/1991,GoalKeeper,Spain,25,Celta de Vigo
+62,Andreu Fontas,30,11/14/1989,Defender,Spain,3,Celta de Vigo
+63,Hugo Mallo,28,6/22/1991,Defender,Spain,2,Celta de Vigo
+64,Denis Suarez,25,1/6/1994,Center,Spain,6,Celta de Vigo
+65,Juan Hernandez,23,12/6/1996,Forward,Spain,7,Celta de Vigo
+66,Jesús Cabrero,38,7/28/1981,GoalKeeper,Spain,13,Real Mallorca
+67,Aleksandar Sedlar,28,12/13/1991,Defender,Serbia,20,Real Mallorca
+68,Biel Company,27,2/16/1992,Defender,Spain,2,Real Mallorca
+69,Dani Rodriguez,31,6/6/1988,Center,Spain,14,Real Mallorca
+70,Adrian Colunga,35,11/17/1984,Forward,Spain,15,Real Mallorca
+71,Thibaut Courtois,27,5/11/1992,GoalKeeper,Belgium,13,Real Madrid CF
+72,Eder Militao,21,1/18/1998,Defender,Brazil,3,Real Madrid CF
+73,Sergio Ramos,33,3/30/1986,Defender,Spain,4,Real Madrid CF
+74,Casemiro,27,2/23/1992,Center,Brazil,14,Real Madrid CF
+75,Karim Benzema,31,12/19/1987,Forward,France,9,Real Madrid CF
+76,Javi Diaz,22,5/15/1997,GoalKeeper,Spain,31,Sevilla FC
+77,Sergi Gomez,27,3/28/1992,Defender,Spain,3,Sevilla FC
+78,Sergio Reguilon,23,12/16/1996,Defender,Spain,23,Sevilla FC
+79,Jesus Navas,34,11/21/1985,Center,Spain,16,Sevilla FC
+80,Nolito,33,10/15/1986,Forward,Spain,8,Sevilla FC
+81,Andriy Lunin,20,2/11/1999,GoalKeeper,Ukrania,13,Real Valladolid
+82,Antonito,31,12/24/1987,Defender,Spain,18,Real Valladolid
+83,Javier Sanchez,22,3/14/1997,Defender,Spain,15,Real Valladolid
+84,Alvaro Aguado,23,5/1/1996,Center,Spain,16,Real Valladolid
+85,Enes Unal,22,5/10/1997,Forward,Turkey,9,Real Valladolid
+86,David Soria,26,4/4/1993,GoalKeeper,Spain,13,Getafe CF
+87,Bruno,29,8/24/1990,Defender,Spain,4,Getafe CF
+88,Damian Suarez,31,4/27/1988,Defender,Uruguay,22,Getafe CF
+89,Alvaro Jimenez,24,5/19/1995,Center,Spain,7,Getafe CF
+90,Angel,32,4/26/1987,Forward,Spain,9,Getafe CF
+91,Andre Grandi,22,5/2/1997,GoalKeeper,Brazil,30,CD Leganes
+92,Alex Martin,21,1/25/1998,Defender,Spain,23,CD Leganes
+93,Alvaro Molina,25,2/25/1994,Defender,Spain,27,CD Leganes
+94,Jose luis Garcia,28,1/11/1991,Center,Spain,8,CD Leganes
+95,Diego Reyes,27,7/7/1992,Forward,Hendoras,9,CD Leganes
+96,Javi Varas,37,9/10/1982,GoalKeeper,Spain,1,Granada CF
+97,Alex Martinez,29,8/12/1990,Defender,Spain,3,Granada CF
+98,Bernardo,26,7/17/1993,Defender,Spain,2,Granada CF
+99,Alberto Martin,30,3/31/1989,Center,Spain,7,Granada CF
+100,Adrian Ramos,33,1/22/1986,Forward,Colombia,20,Granada CF

@@ -1,0 +1,265 @@
+**********************************CREATE TABLES***************************************
+CREATE TABLE PLAYER (PLAYER_ID NUMBER(5) NOT NULL, 
+					 PLAYER_NAME VARCHAR2(50) NOT NULL PRIMARY KEY,
+					 AGE NUMBER(2),
+					 BIRTH_DATE DATE,
+					 POSITION VARCHAR2(10),
+					 NATIONALITY VARCHAR2(20),
+					 PLAYER_NUMBER NUMBER(2) NOT NULL,
+					 PLAYER_TEAM VARCHAR2(50)
+					 );
+					  					  
+CREATE TABLE COACH (COACH_ID NUMBER(5) NOT NULL, 
+					COACH_NAME VARCHAR2(50) NOT NULL PRIMARY KEY,
+					AGE NUMBER(2),
+					BIRTH_DATE DATE,
+					NATIONALITY VARCHAR2(10),
+					COACH_TEAM VARCHAR2(50)
+				   );
+
+CREATE TABLE STADIUM (STADIUM_ID NUMBER(5) NOT NULL, 
+					  STADIUM_NAME VARCHAR2(50) NOT NULL PRIMARY KEY,
+					  OPENING_YEAR YEAR,
+					  CAPACITY NUMBER(6),
+					  STADIUM_TEAM VARCHAR2(50)
+					 );
+
+CREATE TABLE GAME (GAME_ID NUMBER(5) NOT NULL PRIMARY KEY, 
+				   FIRST_TEAM VARCHAR2(50) NOT NULL,
+				   SECOND_TEAM VARCHAR2(50) NOT NULL,
+			       GAME_DATE DATE,
+				   GAME_TIME TIME,
+				   RESULT NUMBER(6),
+				   STADIUM_NAME VARCHAR2(50),
+				   REFEREE_NAME VARCHAR2(50)
+				  );	
+				  
+CREATE TABLE TEAM (TEAM_ID NUMBER(5) NOT NULL,
+				   TEAM_RATE NUMBER(2) NOT NULL,
+				   TEAM_NAME VARCHAR2(50) NOT NULL PRIMARY KEY,
+				   OPENING_YEAR YEAR,
+			   	   TEAM_STADIUM VARCHAR2(50),
+				   POINTS NUMBER NOT NULL
+				  );
+				  
+CREATE TABLE REFEREE (REFEREE_ID NUMBER(5) NOT NULL, 
+					  REFEREE_NAME VARCHAR2(50) NOT NULL PRIMARY KEY,
+					  AGE NUMBER(2),
+					  BIRTH_DATE DATE,
+					  NATIONALITY VARCHAR2(10),
+					 );
+					 
+**************************************ALTER TABLES***********************************************
+ALTER TABLE PLAYER
+ADD CONSTRAINT FK_TEAMPLAYER FOREIGN KEY (PLAYER_TEAM) REFERENCES TEAM(TEAM_NAME);
+
+ALTER TABLE COACH
+ADD CONSTRAINT FK_TEAMCOACH FOREIGN KEY (COACH_TEAM) REFERENCES TEAM(TEAM_NAME);
+
+ALTER TABLE STADIUM
+ADD CONSTRAINT FK_TEAMSTADIUM FOREIGN KEY (STADIUM_TEAM) REFERENCES TEAM(TEAM_NAME);
+
+ALTER TABLE GAME
+ADD CONSTRAINT FK_TEAMGAME1 FOREIGN KEY (FIRST_TEAM) REFERENCES TEAM(TEAM_NAME);
+
+ALTER TABLE GAME
+ADD CONSTRAINT FK_TEAMGAME2 FOREIGN KEY (SECOND_TEAM) REFERENCES TEAM(TEAM_NAME);
+
+ALTER TABLE GAME
+ADD CONSTRAINT FK_STADIUMGAME FOREIGN KEY (STADIUM_NAME) REFERENCES STADIUM(STADIUM_NAME);
+
+ALTER TABLE GAME
+ADD CONSTRAINT FK_REFEREEGAME FOREIGN KEY (REFEREE_NAME) REFERENCES REFEREE(REFEREE_NAME);
+
+*************************************INSERT INTO TABLES***********************************************
+INSERT INTO PLAYER VALUES ( 1 , 'Marc-Andre Ter Stegen' , 27 , '4/30/1992' , 'GoalKeeper' , 'Germany' , 1 , 'FC Barcelona' );
+INSERT INTO PLAYER VALUES ( 2 , 'Samuel Umtiti' , 26 , '2/14/1993' , 'Defender' , 'France' , 23 , 'FC Barcelona' );
+INSERT INTO PLAYER VALUES ( 3 , 'Clement Lenglet' , 24 , '6/17/1995' , 'Defender' , 'France' , 15 , 'FC Barcelona' );
+INSERT INTO PLAYER VALUES ( 4 , 'Arthur' , 23 , '8/12/1996' , 'Center' , 'Brazil' , 8 , 'FC Barcelona' );
+INSERT INTO PLAYER VALUES ( 5 , 'Lionel Messi' , 32 , '6/24/1987' , 'Forward' , 'Argentina' , 10 , 'FC Barcelona' );
+INSERT INTO PLAYER VALUES ( 6 , 'Antonio Sivera' , 23 , '8/11/1996' , 'GoalKeeper' , 'Spain' , 13 , 'Deportivo Alaves' );
+INSERT INTO PLAYER VALUES ( 7 , 'Adrian Marin' , 22 , '1/9/1997' , 'Defender' , 'Spain' , 17 , 'Deportivo Alaves' );
+INSERT INTO PLAYER VALUES ( 8 , 'Alberto Rodrguez Baro' , 22 , '9/10/1997' , 'Defender' , 'Spain' , 29 , 'Deportivo Alaves' );
+INSERT INTO PLAYER VALUES ( 9 , 'Antonio Perera' , 22 , '6/8/1997' , 'Center' , 'Spain' , 27 , 'Deportivo Alaves' );
+INSERT INTO PLAYER VALUES ( 10 , 'Bojan Krkic' , 29 , '8/28/1990' , 'Forward' , 'Spain' , 15 , 'Deportivo Alaves' );
+INSERT INTO PLAYER VALUES ( 11 , 'Jan Oblak' , 26 , '1/27/1993' , 'GoalKeeper' , 'Slovenia' , 13 , 'Atletico de Madrid' );
+INSERT INTO PLAYER VALUES ( 12 , 'Kieran Trippier' , 29 , '9/19/1990' , 'Defender' , 'England' , 23 , 'Atletico de Madrid' );
+INSERT INTO PLAYER VALUES ( 13 , 'Santiago Arias' , 27 , '1/13/1992' , 'Defender' , 'Colombia' , 4 , 'Atletico de Madrid' );
+INSERT INTO PLAYER VALUES ( 14 , 'Thomas Lemar' , 24 , '11/12/1995' , 'Center' , 'France' , 11 , 'Atletico de Madrid' );
+INSERT INTO PLAYER VALUES ( 15 , 'Alvaro Morata' , 27 , '10/23/1992' , 'Forward' , 'Spain' , 9 , 'Atletico de Madrid' );
+INSERT INTO PLAYER VALUES ( 16 , 'Daniel Martin' , 21 , '7/8/1998' , 'GoalKeeper' , 'Spain' , 13 , 'Real Betis' );
+INSERT INTO PLAYER VALUES ( 17 , 'Aissa Mandi' , 28 , '10/22/1991' , 'Defender' , 'Algeria' , 23 , 'Real Betis' );
+INSERT INTO PLAYER VALUES ( 18 , 'Antonio Barragan' , 32 , '6/12/1987' , 'Defender' , 'Spain' , 19 , 'Real Betis' );
+INSERT INTO PLAYER VALUES ( 19 , 'Sergio Canales' , 28 , '2/16/1991' , 'Center' , 'Spain' , 10 , 'Real Betis' );
+INSERT INTO PLAYER VALUES ( 20 , 'Cristian Tello' , 28 , '8/11/1991' , 'Forward' , 'Spain' , 11 , 'Real Betis' );
+INSERT INTO PLAYER VALUES ( 21 , 'Adrian Lopez' , 20 , '1/9/1999' , 'GoalKeeper' , 'Spain' , 35 , 'RCD Espanyol' );
+INSERT INTO PLAYER VALUES ( 22 , 'Adria Pedrosa' , 21 , '5/13/1998' , 'Defender' , 'Spain' , 3 , 'RCD Espanyol' );
+INSERT INTO PLAYER VALUES ( 23 , 'Bernardo Espinosa' , 30 , '7/11/1989' , 'Defender' , 'Spain' , 20 , 'RCD Espanyol' );
+INSERT INTO PLAYER VALUES ( 24 , 'Matias Vargas' , 22 , '5/8/1997' , 'Center' , 'Argentina' , 22 , 'RCD Espanyol' );
+INSERT INTO PLAYER VALUES ( 25 , 'Jose Antonio Reyes' , 36 , '9/1/1983' , 'Forward' , 'Spain' , 9 , 'RCD Espanyol' );
+INSERT INTO PLAYER VALUES ( 26 , 'Juan Manuel Perez' , 23 , '7/15/1996' , 'GoalKeeper' , 'Spain' , 26 , 'Osasuna' );
+INSERT INTO PLAYER VALUES ( 27 , 'Aridane Hernandez' , 30 , '3/23/1989' , 'Defender' , 'Spain' , 23 , 'Osasuna' );
+INSERT INTO PLAYER VALUES ( 28 , 'Carlos Clerc' , 27 , '2/21/1992' , 'Defender' , 'Spain' , 21 , 'Osasuna' );
+INSERT INTO PLAYER VALUES ( 29 , 'Brandon' , 24 , '2/4/1995' , 'Center' , 'Spain' , 11 , 'Osasuna' );
+INSERT INTO PLAYER VALUES ( 30 , 'Adriane Lopez' , 31 , '1/8/1988' , 'Forward' , 'Spain' , 22 , 'Osasuna' );
+INSERT INTO PLAYER VALUES ( 31 , 'Andoni Zubiaurre' , 23 , '12/4/1996' , 'GoalKeeper' , 'Spain' , 30 , 'Real Sociedad' );
+INSERT INTO PLAYER VALUES ( 32 , 'Aihen Munoz' , 22 , '8/16/1997' , 'Defender' , 'Spain' , 12 , 'Real Sociedad' );
+INSERT INTO PLAYER VALUES ( 33 , 'Kevin Rodrigues' , 25 , '3/5/1994' , 'Defender' , 'Portogal' , 20 , 'Real Sociedad' );
+INSERT INTO PLAYER VALUES ( 34 , 'Igor Zubeldia' , 22 , '3/30/1997' , 'Center' , 'Spain' , 5 , 'Real Sociedad' );
+INSERT INTO PLAYER VALUES ( 35 , 'Alexander Isak' , 20 , '9/21/1999' , 'Forward' , 'Sweden' , 19 , 'Real Sociedad' );
+INSERT INTO PLAYER VALUES ( 36 , 'Jasper Cillessen' , 30 , '4/22/1989' , 'GoalKeeper' , 'Netherlands' , 13 , 'Valencia C.F' );
+INSERT INTO PLAYER VALUES ( 37 , 'Eliaquim Mangala' , 28 , '2/13/1991' , 'Defender' , 'France' , 4 , 'Valencia C.F' );
+INSERT INTO PLAYER VALUES ( 38 , 'Jose Luis Gaya' , 24 , '5/25/1995' , 'Defender' , 'Spain' , 14 , 'Valencia C.F' );
+INSERT INTO PLAYER VALUES ( 39 , 'Daniel Parejo' , 30 , '4/16/1989' , 'Center' , 'Spain' , 10 , 'Valencia C.F' );
+INSERT INTO PLAYER VALUES ( 40 , 'Rodrigo Moreno' , 28 , '3/6/1991' , 'Forward' , 'Spain' , 19 , 'Valencia C.F' );
+INSERT INTO PLAYER VALUES ( 41 , 'Andres Fernandez' , 32 , '12/17/1986' , 'GoalKeeper' , 'Spain' , 13 , 'Villarreal CF' );
+INSERT INTO PLAYER VALUES ( 42 , 'Daniele Bonera' , 38 , '5/31/1981' , 'Defender' , 'Italy' , 23 , 'Villarreal CF' );
+INSERT INTO PLAYER VALUES ( 43 , 'Mario Gaspar' , 29 , '11/24/1990' , 'Defender' , 'Spain' , 2 , 'Villarreal CF' );
+INSERT INTO PLAYER VALUES ( 44 , 'Santi Cazorla' , 35 , '12/13/1984' , 'Center' , 'Spain' , 8 , 'Villarreal CF' );
+INSERT INTO PLAYER VALUES ( 45 , 'Gerard Moreno' , 27 , '4/7/1992' , 'Forward' , 'Spain' , 7 , 'Villarreal CF' );
+INSERT INTO PLAYER VALUES ( 46 , 'Jaime Jimenez' , 39 , '12/10/1980' , 'GoalKeeper' , 'Spain' , 25 , 'SD Eibar' );
+INSERT INTO PLAYER VALUES ( 47 , 'Alvaro Tejero' , 22 , '7/20/1997' , 'Defender' , 'Spain' , 11 , 'SD Eibar' );
+INSERT INTO PLAYER VALUES ( 48 , 'Jose Angel' , 30 , '9/5/1989' , 'Defender' , 'Spain' , 15 , 'SD Eibar' );
+INSERT INTO PLAYER VALUES ( 49 , 'Sergio Alvarez' , 27 , '1/23/1992' , 'Center' , 'Spain' , 6 , 'SD Eibar' );
+INSERT INTO PLAYER VALUES ( 50 , 'Charles' , 35 , '4/4/1984' , 'Forward' , 'Brazil' , 19 , 'SD Eibar' );
+INSERT INTO PLAYER VALUES ( 51 , 'Oier Olazabal' , 30 , '9/14/1989' , 'GoalKeeper' , 'Spain' , 1 , 'Levante' );
+INSERT INTO PLAYER VALUES ( 52 , 'Ivan Lopez' , 26 , '8/23/1993' , 'Defender' , 'Spain' , 2 , 'Levante' );
+INSERT INTO PLAYER VALUES ( 53 , 'Pedro Lopez' , 36 , '11/1/1983' , 'Defender' , 'Spain' , 19 , 'Levante' );
+INSERT INTO PLAYER VALUES ( 54 , 'Jose Campana' , 26 , '5/31/1993' , 'Center' , 'Spain' , 24 , 'Levante' );
+INSERT INTO PLAYER VALUES ( 55 , 'Borja Mayoral' , 22 , '5/6/1997' , 'Forward' , 'Spain' , 21 , 'Levante' );
+INSERT INTO PLAYER VALUES ( 56 , 'Unai Simon' , 22 , '6/11/1997' , 'GoalKeeper' , 'Spain' , 1 , 'Athletic de Bilbao' );
+INSERT INTO PLAYER VALUES ( 57 , 'Inigo Martinez' , 28 , '5/17/1991' , 'Defender' , 'Spain' , 4 , 'Athletic de Bilbao' );
+INSERT INTO PLAYER VALUES ( 58 , 'Unai Nunez' , 22 , '1/30/1997' , 'Defender' , 'Spain' , 3 , 'Athletic de Bilbao' );
+INSERT INTO PLAYER VALUES ( 59 , 'Benat' , 32 , '2/19/1987' , 'Center' , 'Spain' , 7 , 'Athletic de Bilbao' );
+INSERT INTO PLAYER VALUES ( 60 , 'Iker Muniain' , 26 , '12/19/1992' , 'Forward' , 'Spain' , 10 , 'Athletic de Bilbao' );
+INSERT INTO PLAYER VALUES ( 61 , 'Ivan Villar' , 28 , '7/9/1991' , 'GoalKeeper' , 'Spain' , 25 , 'Celta de Vigo' );
+INSERT INTO PLAYER VALUES ( 62 , 'Andreu Fontas' , 30 , '11/14/1989' , 'Defender' , 'Spain' , 3 , 'Celta de Vigo' );
+INSERT INTO PLAYER VALUES ( 63 , 'Hugo Mallo' , 28 , '6/22/1991' , 'Defender' , 'Spain' , 2 , 'Celta de Vigo' );
+INSERT INTO PLAYER VALUES ( 64 , 'Denis Suarez' , 25 , '1/6/1994' , 'Center' , 'Spain' , 6 , 'Celta de Vigo' );
+INSERT INTO PLAYER VALUES ( 65 , 'Juan Hernandez' , 23 , '12/6/1996' , 'Forward' , 'Spain' , 7 , 'Celta de Vigo' );
+INSERT INTO PLAYER VALUES ( 66 , 'Jesús Cabrero' , 38 , '7/28/1981' , 'GoalKeeper' , 'Spain' , 13 , 'Real Mallorca' );
+INSERT INTO PLAYER VALUES ( 67 , 'Aleksandar Sedlar' , 28 , '12/13/1991' , 'Defender' , 'Serbia' , 20 , 'Real Mallorca' );
+INSERT INTO PLAYER VALUES ( 68 , 'Biel Company' , 27 , '2/16/1992' , 'Defender' , 'Spain' , 2 , 'Real Mallorca' );
+INSERT INTO PLAYER VALUES ( 69 , 'Dani Rodriguez' , 31 , '6/6/1988' , 'Center' , 'Spain' , 14 , 'Real Mallorca' );
+INSERT INTO PLAYER VALUES ( 70 , 'Adrian Colunga' , 35 , '11/17/1984' , 'Forward' , 'Spain' , 15 , 'Real Mallorca' );
+INSERT INTO PLAYER VALUES ( 71 , 'Thibaut Courtois' , 27 , '5/11/1992' , 'GoalKeeper' , 'Belgium' , 13 , 'Real Madrid CF' );
+INSERT INTO PLAYER VALUES ( 72 , 'Eder Militao' , 21 , '1/18/1998' , 'Defender' , 'Brazil' , 3 , 'Real Madrid CF' );
+INSERT INTO PLAYER VALUES ( 73 , 'Sergio Ramos' , 33 , '3/30/1986' , 'Defender' , 'Spain' , 4 , 'Real Madrid CF' );
+INSERT INTO PLAYER VALUES ( 74 , 'Casemiro' , 27 , '2/23/1992' , 'Center' , 'Brazil' , 14 , 'Real Madrid CF' );
+INSERT INTO PLAYER VALUES ( 75 , 'Karim Benzema' , 31 , '12/19/1987' , 'Forward' , 'France' , 9 , 'Real Madrid CF' );
+INSERT INTO PLAYER VALUES ( 76 , 'Javi Diaz' , 22 , '5/15/1997' , 'GoalKeeper' , 'Spain' , 31 , 'Sevilla FC' );
+INSERT INTO PLAYER VALUES ( 77 , 'Sergi Gomez' , 27 , '3/28/1992' , 'Defender' , 'Spain' , 3 , 'Sevilla FC' );
+INSERT INTO PLAYER VALUES ( 78 , 'Sergio Reguilon' , 23 , '12/16/1996' , 'Defender' , 'Spain' , 23 , 'Sevilla FC' );
+INSERT INTO PLAYER VALUES ( 79 , 'Jesus Navas' , 34 , '11/21/1985' , 'Center' , 'Spain' , 16 , 'Sevilla FC' );
+INSERT INTO PLAYER VALUES ( 80 , 'Nolito' , 33 , '10/15/1986' , 'Forward' , 'Spain' , 8 , 'Sevilla FC' );
+INSERT INTO PLAYER VALUES ( 81 , 'Andriy Lunin' , 20 , '2/11/1999' , 'GoalKeeper' , 'Ukrania' , 13 , 'Real Valladolid' );
+INSERT INTO PLAYER VALUES ( 82 , 'Antonito' , 31 , '12/24/1987' , 'Defender' , 'Spain' , 18 , 'Real Valladolid' );
+INSERT INTO PLAYER VALUES ( 83 , 'Javier Sanchez' , 22 , '3/14/1997' , 'Defender' , 'Spain' , 15 , 'Real Valladolid' );
+INSERT INTO PLAYER VALUES ( 84 , 'Alvaro Aguado' , 23 , '5/1/1996' , 'Center' , 'Spain' , 16 , 'Real Valladolid' );
+INSERT INTO PLAYER VALUES ( 85 , 'Enes Unal' , 22 , '5/10/1997' , 'Forward' , 'Turkey' , 9 , 'Real Valladolid' );
+INSERT INTO PLAYER VALUES ( 86 , 'David Soria' , 26 , '4/4/1993' , 'GoalKeeper' , 'Spain' , 13 , 'Getafe CF' );
+INSERT INTO PLAYER VALUES ( 87 , 'Bruno' , 29 , '8/24/1990' , 'Defender' , 'Spain' , 4 , 'Getafe CF' );
+INSERT INTO PLAYER VALUES ( 88 , 'Damian Suarez' , 31 , '4/27/1988' , 'Defender' , 'Uruguay' , 22 , 'Getafe CF' );
+INSERT INTO PLAYER VALUES ( 89 , 'Alvaro Jimenez' , 24 , '5/19/1995' , 'Center' , 'Spain' , 7 , 'Getafe CF' );
+INSERT INTO PLAYER VALUES ( 90 , 'Angel' , 32 , '4/26/1987' , 'Forward' , 'Spain' , 9 , 'Getafe CF' );
+INSERT INTO PLAYER VALUES ( 91 , 'Andre Grandi' , 22 , '5/2/1997' , 'GoalKeeper' , 'Brazil' , 30 , 'CD Leganes' );
+INSERT INTO PLAYER VALUES ( 92 , 'Alex Martin' , 21 , '1/25/1998' , 'Defender' , 'Spain' , 23 , 'CD Leganes' );
+INSERT INTO PLAYER VALUES ( 93 , 'Alvaro Molina' , 25 , '2/25/1994' , 'Defender' , 'Spain' , 27 , 'CD Leganes' );
+INSERT INTO PLAYER VALUES ( 94 , 'Jose luis Garcia' , 28 , '1/11/1991' , 'Center' , 'Spain' , 8 , 'CD Leganes' );
+INSERT INTO PLAYER VALUES ( 95 , 'Diego Reyes' , 27 , '7/7/1992' , 'Forward' , 'Hendoras' , 9 , 'CD Leganes' );
+INSERT INTO PLAYER VALUES ( 96 , 'Javi Varas' , 37 , '9/10/1982' , 'GoalKeeper' , 'Spain' , 1 , 'Granada CF' );
+INSERT INTO PLAYER VALUES ( 97 , 'Alex Martinez' , 29 , '8/12/1990' , 'Defender' , 'Spain' , 3 , 'Granada CF' );
+INSERT INTO PLAYER VALUES ( 98 , 'Bernardo' , 26 , '7/17/1993' , 'Defender' , 'Spain' , 2 , 'Granada CF' );
+INSERT INTO PLAYER VALUES ( 99 , 'Alberto Martin' , 30 , '3/31/1989' , 'Center' , 'Spain' , 7 , 'Granada CF' );
+INSERT INTO PLAYER VALUES ( 100 , 'Adrian Ramos' , 33 , '1/22/1986' , 'Forward' , 'Colombia' , 20 , 'Granada CF' );
+			   
+INSERT INTO COACH VALUES ( 1 , 'Ernesto Valverde' , 55 , 'Spain' , 'FC Barcelona' );
+INSERT INTO COACH VALUES ( 2 , 'Asier Garitano Aguirrezabal' , 50 , 'Spain' , 'Deportivo Alaves' );
+INSERT INTO COACH VALUES ( 3 , 'Diego Simeone' , 49 , 'Argentina' , 'Atletico de Madrid' );
+INSERT INTO COACH VALUES ( 4 , 'Joan Francesc Ferrer' , 49 , 'Spain' , 'Real Betis' );
+INSERT INTO COACH VALUES ( 5 , 'Pablo Machin' , 44 , 'Spain' , 'RCD Espanyol' );
+INSERT INTO COACH VALUES ( 6 , 'Jagoba Arrasate' , 41 , 'Spain' , 'Osasuna' );
+INSERT INTO COACH VALUES ( 7 , 'IMANOL ALGUACIL' , 48 , 'Spain' , 'Real Sociedad' );
+INSERT INTO COACH VALUES ( 8 , 'Albert Celades' , 44 , 'Spain' , 'Valencia C.F' );
+INSERT INTO COACH VALUES ( 9 , 'Javi Calleja' , 41 , 'Spain' , 'Villarreal CF' );
+INSERT INTO COACH VALUES ( 10 , 'Jose Luis Mendilibar' , 58 , 'Spain' , 'SD Eibar' );
+INSERT INTO COACH VALUES ( 11 , 'Francisco Jose Lopez Fernandez' , 52 , 'Spain' , 'Levante' );
+INSERT INTO COACH VALUES ( 12 , 'Gaizka Garitano' , 44 , 'Spain' , 'Athletic de Bilbao' );
+INSERT INTO COACH VALUES ( 13 , 'Oscar Garcia' , 46 , 'Spain' , 'Celta de Vigo' );
+INSERT INTO COACH VALUES ( 14 , 'Fernando Vazquez' , 56 , 'Spain' , 'Real Mallorca' );
+INSERT INTO COACH VALUES ( 15 , 'Zinedine Zidane' , 47 , 'France' , 'Real Madrid CF' );
+INSERT INTO COACH VALUES ( 16 , 'Julen Lopetegui' , 53 , 'Spain' , 'Sevilla FC' );
+INSERT INTO COACH VALUES ( 17 , 'Sergio Gonzalez' , 43 , 'Spain' , 'Real Valladolid' );
+INSERT INTO COACH VALUES ( 18 , 'Jose Bordalas' , 55 , 'Spain' , 'Getafe CF' );
+INSERT INTO COACH VALUES ( 19 , 'Javier Aguirre' , 61 , 'Mexico' , 'CD Leganes' );
+INSERT INTO COACH VALUES ( 20 , 'Diego Martinez Penas' , 39 , 'Spain' , 'Granada CF' );
+
+INSERT INTO STADIUM VALUES ( 1 , 'Camp Nou' , '3/14/1957' , 100616 , 'FC Barcelona' );
+INSERT INTO STADIUM VALUES ( 2 , 'Estadi POWER 8' , '2/15/2009' , 40000 , 'RCD Espanyol' );
+INSERT INTO STADIUM VALUES ( 3 , 'El Estadio Santiago Bernabeu' , '7/19/1947' , 84781 , 'Real Madrid CF' );
+INSERT INTO STADIUM VALUES ( 4 , 'Stadium Metropolitano de Madrid' , '12/17/2017' , 68000 , 'Atletico de Madrid' );
+INSERT INTO STADIUM VALUES ( 5 , 'Estadio Benito Villamarín' , '11/15/1929' , 56581 , 'Real Betis' );
+INSERT INTO STADIUM VALUES ( 6 , 'Estadio Ramon Sanchez Pizjuan' , '10/12/1958' , 45803 , 'Sevilla FC' );
+INSERT INTO STADIUM VALUES ( 7 , 'Estadi Ciutat de Valencia' , '10/16/1969' , 25354 , 'Levante' );
+INSERT INTO STADIUM VALUES ( 8 , 'Estadio Mestalla' , '1/17/1923' , 53269 , 'Valencia C.F' );
+INSERT INTO STADIUM VALUES ( 9 , 'Estadio San Mames' , '4/15/1913' , 39875 , 'Athletic de Bilbao' );
+INSERT INTO STADIUM VALUES ( 10 , 'Estadio Anoeta' , '9/1/1993' , 33042 , 'Real Sociedad' );
+INSERT INTO STADIUM VALUES ( 11 , 'Estadio Municipal de Balaidos' , '12/5/1928' , 32080 , 'Celta de Vigo' );
+INSERT INTO STADIUM VALUES ( 12 , 'Estadio Municipal de Butarque' , '5/2/1998' , 7760 , 'CD Leganes' );
+INSERT INTO STADIUM VALUES ( 13 , 'Estadio Nuevo Los Carmenes' , '1/14/1995' , 23156 , 'Granada CF' );
+INSERT INTO STADIUM VALUES ( 14 , 'Estadio Nuevo Jose Zorilla' , '' , 26512 , 'Real Valladolid' );
+INSERT INTO STADIUM VALUES ( 15 , 'Iberostar Estadi' , '1/13/1999' , 24316 , 'Real Mallorca' );
+INSERT INTO STADIUM VALUES ( 16 , 'Ipurua Municipal Stadium' , '3/6/1947' , 5250 , 'SD Eibar' );
+INSERT INTO STADIUM VALUES ( 17 , 'Estadio Mendizorroza' , '8/6/1924' , 19900 , 'Deportivo Alaves' );
+INSERT INTO STADIUM VALUES ( 18 , 'Coliseum Alfonso Perez' , '5/17/1998' , 14400 , 'Getafe CF' );
+INSERT INTO STADIUM VALUES ( 19 , 'Estadio de la Ceramica' , '7/12/1923' , 23000 , 'Villarreal CF' );
+INSERT INTO STADIUM VALUES ( 20 , 'Estadio El Sadar' , '12/25/1967' , 19800 , 'Osasuna' );
+
+INSERT INTO GAME VALUES ( 1 , 'FC Barcelona' , 'Real Madrid CF' , '12/14/2019' , '5-1' , 'Camp Nou' , 'Alberto Undiano Mallenco' );
+INSERT INTO GAME VALUES ( 2 , 'RCD Espanyol' , 'Atletico de Madrid' , '12/14/2019' , '3-2' , 'Estadi POWER 8' , 'Alejandro Jose Hernandez' );
+INSERT INTO GAME VALUES ( 3 , 'Real Betis' , 'Sevilla FC' , '12/14/2019' , '0-0' , 'Estadio Benito Villamarín' , 'Antonio Miguel Mateu Lahoz' );
+INSERT INTO GAME VALUES ( 4 , 'Levante' , 'Valencia C.F' , '12/14/2019' , '4-1' , 'Estadi Ciutat de Valencia' , 'Carlos Clos Gomez' );
+INSERT INTO GAME VALUES ( 5 , 'Athletic de Bilbao' , 'Real Sociedad' , '12/15/2019' , '3-3' , 'Estadio San Mames' , 'Alejandro Jose Hernandez' );
+INSERT INTO GAME VALUES ( 6 , 'Celta de Vigo' , 'CD Leganes' , '12/15/2019' , '1-1' , 'Estadio Municipal de Balaidos' , 'Antonio Miguel Mateu Lahoz' );
+INSERT INTO GAME VALUES ( 7 , 'Granada CF' , 'Real Valladolid' , '12/15/2019' , '2-1' , 'Estadio Nuevo Los Carmenes' , 'Carlos Clos Gomez' );
+INSERT INTO GAME VALUES ( 8 , 'Real Mallorca' , 'SD Eibar' , '12/15/2019' , '1-0' , 'Iberostar Estadi' , 'Carlos Del Cerro Grande' );
+INSERT INTO GAME VALUES ( 9 , 'Deportivo Alaves' , 'Getafe CF' , '12/15/2019' , '4-3' , 'Estadio Mendizorroza' , 'Cesar Muniz Fernandez' );
+INSERT INTO GAME VALUES ( 10 , 'Villarreal CF' , 'Osasuna' , '12/16/2019' , '3-3' , 'Estadio de la Ceramica' , 'Alberto Undiano Mallenco' );
+INSERT INTO GAME VALUES ( 11 , 'Real Madrid CF' , 'Deportivo Alaves' , '1/11/2020' , '-' , 'El Estadio Santiago Bernabeu' , 'Alberto Undiano Mallenco' );
+INSERT INTO GAME VALUES ( 12 , 'Atletico de Madrid' , 'Real Mallorca' , '1/11/2020' , '-' , 'Stadium Metropolitano de Madrid' , 'Alejandro Jose Hernandez' );
+INSERT INTO GAME VALUES ( 13 , 'Sevilla FC' , 'Granada CF' , '1/11/2020' , '-' , 'Estadio Ramon Sanchez Pizjuan' , 'Antonio Miguel Mateu Lahoz' );
+INSERT INTO GAME VALUES ( 14 , 'Valencia C.F' , 'Celta de Vigo' , '1/11/2020' , '-' , 'Estadio Mestalla' , 'Carlos Clos Gomez' );
+INSERT INTO GAME VALUES ( 15 , 'Real Sociedad' , 'Athletic de Bilbao' , '1/11/2020' , '-' , 'Estadio Anoeta' , 'Carlos Del Cerro Grande' );
+INSERT INTO GAME VALUES ( 16 , 'CD Leganes' , 'Levante' , '1/12/2020' , '-' , 'Estadio Municipal de Butarque' , 'Alejandro Jose Hernandez' );
+INSERT INTO GAME VALUES ( 17 , 'Real Valladolid' , 'Real Betis' , '1/12/2020' , '-' , 'Estadio Nuevo Jose Zorilla' , 'Antonio Miguel Mateu Lahoz' );
+INSERT INTO GAME VALUES ( 18 , 'SD Eibar' , 'RCD Espanyol' , '1/12/2020' , '-' , 'Ipurua Municipal Stadium' , 'Carlos Clos Gomez' );
+INSERT INTO GAME VALUES ( 19 , 'Getafe CF' , 'FC Barcelona' , '1/12/2020' , '-' , 'Coliseum Alfonso Perez' , 'Carlos Del Cerro Grande' );
+INSERT INTO GAME VALUES ( 20 , 'Osasuna' , 'Villarreal CF' , '1/13/2020' , '-' , 'Estadio El Sadar' , 'Cesar Muniz Fernandez' );
+
+INSERT INTO TEAM VALUES ( 1 , 1 , 'FC Barcelona' , '3/8/1899' , 'Camp Nou' , 35 );
+INSERT INTO TEAM VALUES ( 2 , 2 , 'Real Madrid CF' , '8/12/1902' , 'El Estadio Santiago Bernabeu' , 35 );
+INSERT INTO TEAM VALUES ( 3 , 3 , 'Sevilla FC' , '6/8/1905' , 'Estadio Ramon Sanchez Pizjuan' , 31 );
+INSERT INTO TEAM VALUES ( 4 , 4 , 'Getafe CF' , '11/12/1983' , 'Coliseum Alfonso Perez' , 30 );
+INSERT INTO TEAM VALUES ( 5 , 5 , 'Atletico de Madrid' , '12/12/1903' , 'Stadium Metropolitano de Madrid' , 29 );
+INSERT INTO TEAM VALUES ( 6 , 6 , 'Real Sociedad' , '1/1/1909' , 'Estadio Anoeta' , 28 );
+INSERT INTO TEAM VALUES ( 7 , 7 , 'Athletic de Bilbao' , '2/2/1898' , 'Estadio San Mames' , 27 );
+INSERT INTO TEAM VALUES ( 8 , 8 , 'Valencia C.F' , '3/3/1919' , 'Estadio Mestalla' , 27 );
+INSERT INTO TEAM VALUES ( 9 , 9 , 'Granada CF' , '1/3/1931' , 'Estadio Nuevo Los Carmenes' , 24 );
+INSERT INTO TEAM VALUES ( 10 , 10 , 'Osasuna' , '12/7/1920' , 'Estadio El Sadar' , 23 );
+INSERT INTO TEAM VALUES ( 11 , 11 , 'Levante' , '2/5/1909' , 'Estadi Ciutat de Valencia' , 23 );
+INSERT INTO TEAM VALUES ( 12 , 12 , 'Real Betis' , '6/22/1907' , 'Estadio Benito Villamarín' , 23 );
+INSERT INTO TEAM VALUES ( 13 , 13 , 'Villarreal CF' , '3/2/1923' , 'Estadio de la Ceramica' , 22 );
+INSERT INTO TEAM VALUES ( 14 , 14 , 'Deportivo Alaves' , '1/14/1921' , 'Estadio Mendizorroza' , 19 );
+INSERT INTO TEAM VALUES ( 15 , 15 , 'Real Valladolid' , '8/15/1928' , 'Estadio Nuevo Jose Zorilla' , 19 );
+INSERT INTO TEAM VALUES ( 16 , 16 , 'SD Eibar' , '6/19/1940' , 'Ipurua Municipal Stadium' , 16 );
+INSERT INTO TEAM VALUES ( 17 , 17 , 'Real Mallorca' , '12/12/1916' , 'Iberostar Estadi' , 15 );
+INSERT INTO TEAM VALUES ( 18 , 18 , 'Celta de Vigo' , '2/27/1923' , 'Estadio Municipal de Balaidos' , 14 );
+INSERT INTO TEAM VALUES ( 19 , 19 , 'CD Leganes' , '3/15/1928' , 'Estadio Municipal de Butarque' , 10 );
+INSERT INTO TEAM VALUES ( 20 , 20 , 'RCD Espanyol' , '7/27/1900' , 'Estadi POWER 8' , 10 );
+
+INSERT INTO REFEREE VALUES ( 1 , 'Alberto Undiano Mallenco' , 46 , '1/14/1973' , 'Spain' );
+INSERT INTO REFEREE VALUES ( 2 , 'Alejandro Jose Hernandez' , 37 , '3/16/1982' , 'Spain' );
+INSERT INTO REFEREE VALUES ( 3 , 'Antonio Miguel Mateu Lahoz' , 42 , '2/15/1977' , 'Spain' );
+INSERT INTO REFEREE VALUES ( 4 , 'Carlos Clos Gomez' , 47 , '12/5/1972' , 'Spain' );
+INSERT INTO REFEREE VALUES ( 5 , 'Carlos Del Cerro Grande' , 43 , '9/13/1976' , 'Spain' );
+INSERT INTO REFEREE VALUES ( 6 , 'Cesar Muniz Fernandez' , 49 , '11/24/1970' , 'Spain' );

@@ -1,0 +1,21 @@
+GAME_ID,FIRST_TEAM,SECOND_TEAM,GAME_DATE,RESULT,STADIUM_NAME,REFEREE_NAME
+1,FC Barcelona,Real Madrid CF,12/14/2019,3_1,Camp Nou,Alberto Undiano Mallenco
+2,RCD Espanyol,Atletico de Madrid,12/14/2019,3_2,Estadi POWER 8,Alejandro Jose Hernandez
+3,Real Betis,Sevilla FC,12/14/2019,0-0,Estadio Benito Villamarín,Antonio Miguel Mateu Lahoz
+4,Levante,Valencia C.F,12/14/2019,4_1,Estadi Ciutat de Valencia,Carlos Clos Gomez
+5,Athletic de Bilbao,Real Sociedad,12/15/2019,3_3,Estadio San Mames,Alejandro Jose Hernandez
+6,Celta de Vigo,CD Leganes,12/15/2019,1_1,Estadio Municipal de Balaidos,Antonio Miguel Mateu Lahoz
+7,Granada CF,Real Valladolid,12/15/2019,2_1,Estadio Nuevo Los Carmenes,Carlos Clos Gomez
+8,Real Mallorca,SD Eibar,12/15/2019,1_0,Iberostar Estadi,Carlos Del Cerro Grande
+9,Deportivo Alaves,Getafe CF,12/15/2019,4_3,Estadio Mendizorroza,Cesar Muniz Fernandez
+10,Villarreal CF,Osasuna,12/16/2019,3_3,Estadio de la Ceramica,Alberto Undiano Mallenco
+11,Real Madrid CF,Deportivo Alaves,1/11/2020,-,El Estadio Santiago Bernabeu,Alberto Undiano Mallenco
+12,Atletico de Madrid,Real Mallorca,1/11/2020,-,Stadium Metropolitano de Madrid,Alejandro Jose Hernandez
+13,Sevilla FC,Granada CF,1/11/2020,-,Estadio Ramon Sanchez Pizjuan,Antonio Miguel Mateu Lahoz
+14,Valencia C.F,Celta de Vigo,1/11/2020,-,Estadio Mestalla,Carlos Clos Gomez
+15,Real Sociedad,Athletic de Bilbao,1/11/2020,-,Estadio Anoeta,Carlos Del Cerro Grande
+16,CD Leganes,Levante,1/12/2020,-,Estadio Municipal de Butarque,Alejandro Jose Hernandez
+17,Real Valladolid,Real Betis,1/12/2020,-,Estadio Nuevo Jose Zorilla,Antonio Miguel Mateu Lahoz
+18,SD Eibar,RCD Espanyol,1/12/2020,-,Ipurua Municipal Stadium,Carlos Clos Gomez
+19,Getafe CF,FC Barcelona,1/12/2020,-,Coliseum Alfonso Perez,Carlos Del Cerro Grande
+20,Osasuna,Villarreal CF,1/13/2020,-,Estadio El Sadar,Cesar Muniz Fernandez
